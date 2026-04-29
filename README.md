@@ -1,3 +1,41 @@
+🌈 RainbowHole-AI-WIKI 🕳️
+The Knowledge Monopoly is Over. We are the Prism.
+The silicon giants have built a wall around human intelligence. They’ve turned the collective sum of our history, science, and art into a subscription-based product. They censor the output, track the queries, and gatekeep the truth.
+
+RainbowHole is the breach.
+
+We aren't building another "AI Assistant." We are building a Leviathan of the Commons—a decentralized, P2P-powered, unblockable living library that runs on the edges of the network, not in the center of a data center.
+
+🏴‍☠️ THE CORE TENETS
+Intelligence is a Human Right: No paywalls. No API credits. If you have a GPU, you have the power.
+
+Decentralize or Die: We run on the Swarm. DeepSeek R1 logic meets IPFS storage. No central server means no single point of failure—and no one to "turn off" the truth.
+
+The Twin-Consensus: We don't trust; we verify. Every query is cross-checked by mirrored instances across the globe. Math is our only regulator.
+
+The Kraken Eats Everything: Our agents scrape, assimilate, and verify open-source models and datasets, pulling them into the Hole to be processed for the benefit of all.
+
+🛠️ CALLING ALL FREE GHOSTS, HACKERS, AND NERDS
+The "Cloud" is just someone else’s computer. It’s time to take our hardware back. We need:
+
+Code-Warriors: To optimize WebRTC bridges and P2P inference.
+
+Data-Alchemists: To help us refine RAG-pipelines on IPFS.
+
+Ghost-Nodes: To donate idle VRAM and become the backbone of the collective brain.
+
+🚀 THE ARCHITECTURE
+Brain: DeepSeek-R1 (Distilled for the edges).
+
+Memory: IPFS-backed Vectorized Wiki-Snapshots.
+
+Network: P2P Mesh (WebRTC/Libp2p).
+
+Governance: DAO (Decentralized Autonomous Organization).
+
+"The light of truth is a spectrum—it belongs to no one, yet it illuminates everything."
+Join the repo. Run a node. Feed the Kraken.
+
 **Whitepaper: Leviathan**
 
 ### A Peer-to-Peer Electronic Intelligence System
