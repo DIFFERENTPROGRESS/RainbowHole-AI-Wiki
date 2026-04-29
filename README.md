@@ -1,4 +1,4 @@
-RainbowHole v3
+# RainbowHole v3
 A Distributed Network for AI Artifact Production and Shared Compute
 
 Version 0.1 – Technical Draft
