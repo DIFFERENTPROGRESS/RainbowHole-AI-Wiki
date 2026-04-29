@@ -1,3 +1,291 @@
+RainbowHole v3
+A Distributed Network for AI Artifact Production and Shared Compute
+
+Version 0.1 – Technical Draft
+
+1. Abstract
+
+RainbowHole v3 is a decentralized network designed to facilitate the collective production, execution, and evaluation of AI prompts through shared computational resources.
+
+Unlike centralized AI systems that rely on proprietary infrastructure, RainbowHole separates AI activity into two independent layers:
+
+Compute Layer – a peer-to-peer network of GPU nodes executing model inference tasks.
+Artifact Layer – a publicly accessible knowledge graph containing prompts, outputs, evaluations, and associated metadata.
+
+Instead of attempting to build a globally synchronized AI model, RainbowHole organizes AI interaction as a distributed system of reproducible experiments.
+
+The network enables:
+
+distributed AI inference
+collaborative prompt research
+shared GPU capacity
+open datasets of AI interactions
+2. Motivation
+
+Current large language model ecosystems are dominated by centralized infrastructures.
+
+These systems exhibit several structural limitations:
+
+opaque training datasets
+centralized compute monopolies
+non-reproducible prompt interactions
+lack of collective knowledge accumulation.
+
+RainbowHole addresses these limitations by creating a system where AI interactions become persistent artifacts that can be analyzed, reused, and improved collaboratively.
+
+The system transforms AI usage into a form of open computational research infrastructure.
+
+3. System Overview
+
+RainbowHole consists of four primary subsystems.
+
+Clients
+   │
+API Gateway
+   │
+Artifact Layer
+   │
+Compute Orchestrator
+   │
+Worker Network
+
+Each subsystem has a clearly defined role.
+
+Layer	Function
+Client Layer	user interaction
+API Gateway	request routing
+Artifact Layer	knowledge persistence
+Compute Layer	distributed inference
+4. Roles in the Network
+
+The network defines two primary participant roles.
+
+4.1 Compute Contributors
+
+Compute contributors provide GPU capacity.
+
+Tasks include:
+
+receiving inference jobs
+executing model inference locally
+returning generated outputs.
+
+Contributors receive compute credits proportional to the GPU time they provide.
+
+4.2 Knowledge Contributors
+
+Knowledge contributors interact with the system as researchers.
+
+They:
+
+submit prompts
+analyze outputs
+evaluate results
+generate improved prompt variants.
+
+These interactions form the Artifact Layer.
+
+5. Artifact Model
+
+All knowledge in RainbowHole is represented as structured artifacts.
+
+Primary artifact types:
+
+Artifact	Description
+Prompt	input request for AI model
+Output	generated model response
+Evaluation	user rating of output
+Derived Prompt	modification of existing prompt
+Artifact Graph
+
+Artifacts form a directed graph.
+
+Prompt
+  ↓
+Output
+  ↓
+Evaluation
+  ↓
+Derived Prompt
+
+This graph enables analysis of prompt evolution and model performance.
+
+6. Compute Layer
+
+The compute layer distributes inference tasks to worker nodes.
+
+Unlike distributed model training systems, RainbowHole uses local inference execution.
+
+Each worker runs models independently.
+
+This architecture avoids:
+
+inter-GPU communication latency
+model sharding complexity
+synchronization overhead.
+Compute Workflow
+Prompt submitted
+     ↓
+Task queued
+     ↓
+Worker requests task
+     ↓
+Model inference
+     ↓
+Output returned
+     ↓
+Artifact stored
+7. Compute Credit Mechanism
+
+The network uses a simple credit system to balance compute supply and demand.
+
+Credits are earned by contributing GPU time.
+
+1 GPU minute → compute credits
+
+Credits are consumed when submitting inference tasks.
+
+This mechanism prevents resource abuse and encourages contribution.
+
+8. Reputation System
+
+To maintain quality within the Artifact Layer, RainbowHole introduces a reputation score.
+
+User reputation is determined by:
+
+quality of submitted prompts
+evaluation accuracy
+community feedback.
+
+Outputs and prompts from high-reputation users receive higher ranking weights.
+
+9. Ranking and Discovery
+
+Outputs are ranked based on:
+
+ranking_score =
+average_rating
+× author_reputation
+× model_weight
+
+This ranking allows discovery of:
+
+high-quality prompts
+reliable models
+useful outputs.
+
+The ranking system functions similarly to collaborative knowledge systems such as Wikipedia and Reddit.
+
+10. Storage Architecture
+
+The Artifact Layer uses hybrid storage.
+
+Structured data:
+
+relational database
+
+Large artifacts:
+
+decentralized storage.
+
+Recommended technologies:
+
+PostgreSQL
+IPFS
+
+This architecture ensures both query efficiency and decentralized persistence.
+
+11. Network Components
+
+The system consists of five operational components.
+
+Component	Role
+API Gateway	request entry point
+Artifact Service	artifact storage
+Compute Orchestrator	task scheduling
+Worker Nodes	model inference
+Client Interface	user interaction
+12. Technology Stack
+
+RainbowHole v3 uses widely adopted open technologies to minimize development complexity.
+
+Backend
+Node.js
+TypeScript
+Fastify
+Database
+PostgreSQL
+Task Queue
+Redis
+or
+RabbitMQ
+Worker Runtime
+Python
+PyTorch
+HuggingFace Transformers
+Frontend
+Next.js
+13. API Interface
+
+The system exposes a minimal API.
+
+Submit Prompt
+POST /prompt
+
+Request:
+
+{
+ "prompt": "Explain dark matter",
+ "model": "mistral-7b"
+}
+Worker Task Request
+GET /worker/task
+Submit Output
+POST /worker/output
+Rate Output
+POST /rating
+14. Security Considerations
+
+RainbowHole must address several attack vectors.
+
+Key risks include:
+
+Sybil attacks in reputation systems
+malicious compute nodes
+artifact spam.
+
+Potential mitigation strategies include:
+
+stake-based identity
+reputation decay
+moderation layers.
+15. Limitations
+
+RainbowHole does not attempt to solve:
+
+distributed LLM training
+globally synchronized inference
+consensus on factual truth.
+
+Instead, the network focuses on collective experimentation with AI systems.
+
+16. Conclusion
+
+RainbowHole v3 proposes a decentralized infrastructure for AI experimentation.
+
+By separating compute execution from knowledge accumulation, the system creates a network where AI interactions become persistent, shareable artifacts.
+
+The architecture prioritizes:
+
+reproducibility
+collaboration
+compute accessibility.
+
+Rather than replacing centralized AI models, RainbowHole aims to create a complementary ecosystem for open AI research and distributed compute sharing.
+
+
+RainbowHole v3
+
 🌈 RainbowHole-AI-WIKI 🕳️
 The Knowledge Monopoly is Over. We are the Prism.
 The silicon giants have built a wall around human intelligence. They’ve turned the collective sum of our history, science, and art into a subscription-based product. They censor the output, track the queries, and gatekeep the truth.
