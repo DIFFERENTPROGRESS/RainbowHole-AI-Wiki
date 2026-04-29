@@ -36,6 +36,15 @@ Governance: DAO (Decentralized Autonomous Organization).
 "The light of truth is a spectrum—it belongs to no one, yet it illuminates everything."
 Join the repo. Run a node. Feed the Kraken.
 
+
+
+
+
+
+
+
+
+
 **Whitepaper: Leviathan**
 
 ### A Peer-to-Peer Electronic Intelligence System
