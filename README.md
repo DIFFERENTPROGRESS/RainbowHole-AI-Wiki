@@ -284,7 +284,7 @@ compute accessibility.
 Rather than replacing centralized AI models, RainbowHole aims to create a complementary ecosystem for open AI research and distributed compute sharing.
 
 
-RainbowHole v3
+# RainbowHole v1
 
 🌈 RainbowHole-AI-WIKI 🕳️
 The Knowledge Monopoly is Over. We are the Prism.
