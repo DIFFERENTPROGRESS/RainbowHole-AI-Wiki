@@ -333,7 +333,7 @@ Join the repo. Run a node. Feed the Kraken.
 
 
 
-**Whitepaper: Leviathan**
+**Whitepaper: Rainbow Hole**
 
 ### A Peer-to-Peer Electronic Intelligence System
 
@@ -379,13 +379,13 @@ Centralized systems possess clear single points of failure. Infrastructure outag
 
 These properties contradict the original decentralized philosophy of the internet.
 
-Leviathan proposes a different model: **intelligence as a distributed public utility**, hosted and operated collectively by its users.
+Rainbow Hole proposes a different model: **intelligence as a distributed public utility**, hosted and operated collectively by its users.
 
 ---
 
 # 2. Conceptual Overview
 
-Leviathan separates artificial intelligence infrastructure into three independent layers:
+Rainbow Hole separates artificial intelligence infrastructure into three independent layers:
 
 1. **Local computation**
 2. **Distributed knowledge storage**
