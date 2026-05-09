@@ -1,658 +1,254 @@
-# RainbowHole v3
-A Distributed Network for AI Artifact Production and Shared Compute
+# Project RainbowHole — V0
 
-Version 0.1 – Technical Draft
+## Abstract
 
-## 1. Abstract
+RainbowHole ist ein dezentrales, P2P-gestütztes Framework zur Sicherstellung kognitiver Souveränität.  
+In einer Ära der „Intelligence-as-a-Service“-Monopole dekonstruiert RainbowHole die Abhängigkeit von zentralisierten Cloud-Infrastrukturen.
 
-RainbowHole v3 is a decentralized network designed to facilitate the collective production, execution, and evaluation of AI prompts through shared computational resources.
+Das System integriert:
 
-Unlike centralized AI systems that rely on proprietary infrastructure, RainbowHole separates AI activity into two independent layers:
+- lokale Inferenz-Engines  
+- inhaltsadressierten Speicher (IPFS)  
+- asynchrone Konsensmechanismen  
 
-Compute Layer – a peer-to-peer network of GPU nodes executing model inference tasks.
-Artifact Layer – a publicly accessible knowledge graph containing prompts, outputs, evaluations, and associated metadata.
+zu einem resilienten Wissens-Mesh.
 
-Instead of attempting to build a globally synchronized AI model, RainbowHole organizes AI interaction as a distributed system of reproducible experiments.
-
-The network enables:
-
-distributed AI inference
-collaborative prompt research
-shared GPU capacity
-open datasets of AI interactions
-## 2. Motivation
-
-Current large language model ecosystems are dominated by centralized infrastructures.
-
-These systems exhibit several structural limitations:
-
-opaque training datasets
-centralized compute monopolies
-non-reproducible prompt interactions
-lack of collective knowledge accumulation.
-
-RainbowHole addresses these limitations by creating a system where AI interactions become persistent artifacts that can be analyzed, reused, and improved collaboratively.
-
-The system transforms AI usage into a form of open computational research infrastructure.
-
-## 3. System Overview
-
-RainbowHole consists of four primary subsystems.
-
-Clients
-   │
-API Gateway
-   │
-Artifact Layer
-   │
-Compute Orchestrator
-   │
-Worker Network
-
-Each subsystem has a clearly defined role.
-
-Layer	Function
-Client Layer	user interaction
-API Gateway	request routing
-Artifact Layer	knowledge persistence
-Compute Layer	distributed inference
-## 4. Roles in the Network
-
-The network defines two primary participant roles.
-
-4.1 Compute Contributors
-
-Compute contributors provide GPU capacity.
-
-Tasks include:
-
-receiving inference jobs
-executing model inference locally
-returning generated outputs.
-
-Contributors receive compute credits proportional to the GPU time they provide.
-
-4.2 Knowledge Contributors
-
-Knowledge contributors interact with the system as researchers.
-
-They:
-
-submit prompts
-analyze outputs
-evaluate results
-generate improved prompt variants.
-
-These interactions form the Artifact Layer.
-
-## 5. Artifact Model
-
-All knowledge in RainbowHole is represented as structured artifacts.
-
-Primary artifact types:
-
-Artifact	Description
-Prompt	input request for AI model
-Output	generated model response
-Evaluation	user rating of output
-Derived Prompt	modification of existing prompt
-Artifact Graph
-
-Artifacts form a directed graph.
-
-Prompt
-  ↓
-Output
-  ↓
-Evaluation
-  ↓
-Derived Prompt
-
-This graph enables analysis of prompt evolution and model performance.
-
-## 6. Compute Layer
-
-The compute layer distributes inference tasks to worker nodes.
-
-Unlike distributed model training systems, RainbowHole uses local inference execution.
-
-Each worker runs models independently.
-
-This architecture avoids:
-
-inter-GPU communication latency
-model sharding complexity
-synchronization overhead.
-Compute Workflow
-Prompt submitted
-     ↓
-Task queued
-     ↓
-Worker requests task
-     ↓
-Model inference
-     ↓
-Output returned
-     ↓
-Artifact stored
-## 7. Compute Credit Mechanism
-
-The network uses a simple credit system to balance compute supply and demand.
-
-Credits are earned by contributing GPU time.
-
-1 GPU minute → compute credits
-
-Credits are consumed when submitting inference tasks.
-
-This mechanism prevents resource abuse and encourages contribution.
-
-## 8. Reputation System
-
-To maintain quality within the Artifact Layer, RainbowHole introduces a reputation score.
-
-User reputation is determined by:
-
-quality of submitted prompts
-evaluation accuracy
-community feedback.
-
-Outputs and prompts from high-reputation users receive higher ranking weights.
-
-## 9. Ranking and Discovery
-
-Outputs are ranked based on:
-
-ranking_score =
-average_rating
-× author_reputation
-× model_weight
-
-This ranking allows discovery of:
-
-high-quality prompts
-reliable models
-useful outputs.
-
-The ranking system functions similarly to collaborative knowledge systems such as Wikipedia and Reddit.
-
-## 10. Storage Architecture
-
-The Artifact Layer uses hybrid storage.
-
-Structured data:
-
-relational database
-
-Large artifacts:
-
-decentralized storage.
-
-Recommended technologies:
-
-PostgreSQL
-IPFS
-
-This architecture ensures both query efficiency and decentralized persistence.
-
-## 11. Network Components
-
-The system consists of five operational components.
-
-Component	Role
-API Gateway	request entry point
-Artifact Service	artifact storage
-Compute Orchestrator	task scheduling
-Worker Nodes	model inference
-Client Interface	user interaction
-## 12. Technology Stack
-
-RainbowHole v3 uses widely adopted open technologies to minimize development complexity.
-
-Backend
-Node.js
-TypeScript
-Fastify
-Database
-PostgreSQL
-Task Queue
-Redis
-or
-RabbitMQ
-Worker Runtime
-Python
-PyTorch
-HuggingFace Transformers
-Frontend
-Next.js
-## 13. API Interface
-
-The system exposes a minimal API.
-
-Submit Prompt
-POST /prompt
-
-Request:
-
-{
- "prompt": "Explain dark matter",
- "model": "mistral-7b"
-}
-Worker Task Request
-GET /worker/task
-Submit Output
-POST /worker/output
-Rate Output
-POST /rating
-## 14. Security Considerations
-
-RainbowHole must address several attack vectors.
-
-Key risks include:
-
-Sybil attacks in reputation systems
-malicious compute nodes
-artifact spam.
-
-Potential mitigation strategies include:
-
-stake-based identity
-reputation decay
-moderation layers.
-## 15. Limitations
-
-RainbowHole does not attempt to solve:
-
-distributed LLM training
-globally synchronized inference
-consensus on factual truth.
-
-Instead, the network focuses on collective experimentation with AI systems.
-
-## 16. Conclusion
-
-RainbowHole v3 proposes a decentralized infrastructure for AI experimentation.
-
-By separating compute execution from knowledge accumulation, the system creates a network where AI interactions become persistent, shareable artifacts.
-
-The architecture prioritizes:
-
-reproducibility
-collaboration
-compute accessibility.
-
-Rather than replacing centralized AI models, RainbowHole aims to create a complementary ecosystem for open AI research and distributed compute sharing.
-
-
-# RainbowHole v1
-
-🌈 RainbowHole-AI-WIKI 🕳️
-The Knowledge Monopoly is Over. We are the Prism.
-The silicon giants have built a wall around human intelligence. They’ve turned the collective sum of our history, science, and art into a subscription-based product. They censor the output, track the queries, and gatekeep the truth.
-
-RainbowHole is the breach.
-
-We aren't building another "AI Assistant." We are building a Leviathan of the Commons—a decentralized, P2P-powered, unblockable living library that runs on the edges of the network, not in the center of a data center.
-
-🏴‍☠️ THE CORE TENETS
-Intelligence is a Human Right: No paywalls. No API credits. If you have a GPU, you have the power.
-
-Decentralize or Die: We run on the Swarm. DeepSeek R1 logic meets IPFS storage. No central server means no single point of failure—and no one to "turn off" the truth.
-
-The Twin-Consensus: We don't trust; we verify. Every query is cross-checked by mirrored instances across the globe. Math is our only regulator.
-
-The Kraken Eats Everything: Our agents scrape, assimilate, and verify open-source models and datasets, pulling them into the Hole to be processed for the benefit of all.
-
-🛠️ CALLING ALL FREE GHOSTS, HACKERS, AND NERDS
-The "Cloud" is just someone else’s computer. It’s time to take our hardware back. We need:
-
-Code-Warriors: To optimize WebRTC bridges and P2P inference.
-
-Data-Alchemists: To help us refine RAG-pipelines on IPFS.
-
-Ghost-Nodes: To donate idle VRAM and become the backbone of the collective brain.
-
-🚀 THE ARCHITECTURE
-Brain: DeepSeek-R1 (Distilled for the edges).
-
-Memory: IPFS-backed Vectorized Wiki-Snapshots.
-
-Network: P2P Mesh (WebRTC/Libp2p).
-
-Governance: DAO (Decentralized Autonomous Organization).
-
-"The light of truth is a spectrum—it belongs to no one, yet it illuminates everything."
-Join the repo. Run a node. Feed the Kraken.
-
-
-
-
-
-
-
-
-
-
-**Whitepaper: Rainbow Hole**
-
-### A Peer-to-Peer Electronic Intelligence System
-
-Anonymous (The Free Ghosts)
-April 2026
+Ziel ist der Betrieb einer **autarken Intelligenz-Zelle**, die primär auf lokaler Hardware und regenerativer Energie (Off-Grid) operiert.
 
 ---
 
-# Abstract
+# 1. System-Philosophie & Problemstellung
 
-Modern artificial intelligence is predominantly delivered through centralized cloud infrastructures. This model concentrates computational power, knowledge access, and informational authority within a small number of corporations and institutions.
+Zentralisierte Large Language Models (LLMs) unterliegen drei systemischen Risiken:
 
-Leviathan proposes an alternative architecture: a **peer-to-peer intelligence network** in which AI models, knowledge archives, and reasoning processes are distributed across independently operated nodes.
+### Informations-Asymmetrie
+Proprietäre Gatekeeper kontrollieren den Zugriff auf das kollektive Wissen.
 
-In this system:
+### Algorithmisches Alignment
+Externe Ethik-Vorgaben fungieren als Filter-Ebene (*Censorship-by-Design*).
 
-* **Local inference engines** perform reasoning directly on user hardware.
-* The **RainbowHole protocol** organizes nodes into a decentralized knowledge mesh.
-* **Content-addressed storage** ensures the persistence and integrity of models and archives.
-* **Multi-node validation** establishes probabilistic consensus over generated knowledge.
+### Strukturelle Fragilität
+Abhängigkeit von monetären Paywalls und physischer Cloud-Infrastruktur.
 
-Instead of a centralized AI service, Leviathan forms a **distributed cognitive infrastructure** where intelligence emerges from a swarm of sovereign nodes.
+RainbowHole begegnet diesen Risiken durch:
 
----
-
-# 1. Introduction
-
-The current paradigm of artificial intelligence can be described as **Intelligence-as-a-Service**. Access to models is mediated through centralized providers operating large data centers.
-
-This model introduces several systemic vulnerabilities.
-
-### Censorship
-
-Centralized operators retain the ability to filter outputs, enforce policy constraints, or modify model behavior.
-
-### Privacy Loss
-
-User prompts and reasoning chains are transmitted to remote servers, allowing queries to be stored, analyzed, or monetized.
-
-### Structural Fragility
-
-Centralized systems possess clear single points of failure. Infrastructure outages, regulatory restrictions, or platform de-hosting can immediately sever access to computational intelligence.
-
-These properties contradict the original decentralized philosophy of the internet.
-
-Rainbow Hole proposes a different model: **intelligence as a distributed public utility**, hosted and operated collectively by its users.
+- das **Primat der lokalen Inferenz**
+- das **Prinzip der digitalen Allmende**
 
 ---
 
-# 2. Conceptual Overview
+# 2. Architektur-Spezifikation  
+## The Triple Layer
 
-Rainbow Hole separates artificial intelligence infrastructure into three independent layers:
-
-1. **Local computation**
-2. **Distributed knowledge storage**
-3. **Peer-to-peer coordination**
-
-This architecture eliminates the need for centralized compute clusters.
-
-Each participant contributes a small portion of storage and processing capability, forming a **collective knowledge network**.
-
-The system therefore behaves less like a single machine and more like a **distributed cognitive ecosystem**.
+Das System ist in drei funktionale Schichten unterteilt, die **asynchron miteinander interagieren**.
 
 ---
 
-# 3. The Node — The Sovereign Inference Engine
+# 2.1 Layer I — The Sovereign Node (Compute)
 
-The fundamental unit of the system is the **Sovereign Node**.
+Die Recheneinheit führt die Inferenz lokal aus.
 
-Each node runs a local inference engine capable of executing open-source language models.
+### Inference Engine
 
-Typical runtime environments include:
+Einsatz von:
 
-* Ollama
-* llama.cpp
+- `llama.cpp`
+- `Ollama`
 
-These runtimes allow large language models to operate directly on personal hardware.
+zur Ausführung hoch-quantisierter Transformer-Modelle.
 
-Examples of compatible models include:
+### Modell-Strategie
 
-* Llama 3
-* DeepSeek-R1
+Nutzung von **Small Language Models (SLMs)**
 
-Each node possesses two resources:
+Beispiele:
 
-* computational capacity (C)
-* a local knowledge base (K)
+- Qwen2.5-Coder  
+- Phi-3  
 
-The response (O) to a prompt (P) is therefore produced entirely locally:
+optimiert auf geringe Speicher-Latenz (VRAM-Management).
 
-[
-O = f_{LLM}(P, K_{local})
-]
+### Privacy Isolation
 
-This ensures that prompts, reasoning chains, and intermediate computations **never leave the user's machine**.
+Alle Roh-Prompts und Zwischen-Aktivierungen verbleiben im **flüchtigen Speicher (RAM/VRAM)** des lokalen Knotens.
 
 ---
 
-# 4. Network Architecture — The RainbowHole Protocol
+# 2.2 Layer II — Distributed Knowledge Mesh (Memory)
 
-While inference occurs locally, nodes cooperate through a decentralized overlay network known as the **RainbowHole protocol**.
+Anstatt Wissen in Modell-Gewichten zu „vergraben“, nutzt RainbowHole ein **externes dezentrales Gedächtnis**.
 
-The network functions as a **mesh of peer-to-peer connections**.
+### Content-Addressed Storage
 
-Typical technologies enabling this layer include:
+Integration von **IPFS (InterPlanetary File System)** zur Speicherung von Wissensfragmenten.
 
-* WebRTC
-* PeerJS
-
-Node discovery and routing are performed through a distributed lookup system based on:
-
-* Kademlia
-
-This architecture removes the need for centralized servers.
-
-Instead of client-server communication, nodes interact directly with each other through **gossip propagation**.
-
-Requests, model updates, and knowledge fragments travel through the network in a probabilistic diffusion process.
-
-The system is designed to tolerate:
-
-* high network latency
-* intermittent connectivity
-* offline nodes
-
-This **offline-first design** is essential for a globally distributed swarm.
+Jeder Datensatz wird über eine **unveränderliche CID (Content Identifier)** adressiert.
 
 ---
 
-# 5. Distributed Knowledge Storage
+### Vectorized RAG (Retrieval-Augmented Generation)
 
-Leviathan separates **knowledge storage** from **model execution**.
+Lokale Vektor-Datenbanken:
 
-All large artifacts — including models, datasets, and archives — are stored in decentralized content-addressed storage systems.
+- Orama
+- ChromaDB
 
-A common implementation is:
+indizieren CIDs.
 
-* IPFS
-
-or browser-native implementations such as:
-
-* Helia
-
-Files are identified by cryptographic hashes called **Content Identifiers (CID)**.
-
-This produces two key properties.
-
-### Integrity
-
-If any bit of a file changes, its CID changes.
-Tampering becomes immediately detectable.
-
-### Persistence
-
-Data can be replicated across many nodes simultaneously.
-
-The network therefore behaves similarly to **BitTorrent-style swarms**.
-
-Even if original sources disappear, the data remains available as long as one node continues hosting it.
+Die Suche erfolgt über **mathematische Ähnlichkeit (Cosine Similarity)** im Einbettungsraum.
 
 ---
 
-# 6. Local Retrieval-Augmented Generation (RAG)
+### Deltas & Snapshots
 
-To allow users to interact with private or sensitive information, Leviathan implements **local retrieval-augmented generation**.
-
-Documents are processed into vector embeddings:
-
-[
-V = embed(D_{local})
-]
-
-These embeddings are stored in local vector databases such as:
-
-* Orama
-
-When a user submits a prompt, the node retrieves relevant vectors from its private archive and injects them into the model's context window.
-
-This allows the AI to reason over:
-
-* personal notes
-* research archives
-* leaked documents
-* private libraries
-
-without exposing the underlying files to the network.
-
-Privacy is preserved because both the **model and the vector index remain local**.
+Wissens-Updates werden als **inkrementelle Schichten** im Mesh verteilt.
 
 ---
 
-# 7. Consensus of Reason
+# 2.3 Layer III — Collective Intelligence Protocol (Network)
 
-A decentralized system cannot rely on a single authority to verify truth.
+Die Vernetzung der Knoten zur Bildung eines Schwarms.
 
-Leviathan introduces a probabilistic validation mechanism called **Consensus of Reason (CoR)**.
+### P2P Communication
 
-When verification is required, a query is broadcast to multiple nodes.
+Technologien:
 
-Each node independently generates a reasoning chain and response.
+- `libp2p`
+- `WebRTC`
 
-If the outputs converge, the result is considered verified.
-
-Formally:
-
-[
-R = \arg\max \sum_{i=1}^{n} similarity(O_i, O_{ref})
-]
-
-If many independent nodes arrive at similar reasoning paths, the information gains **statistical credibility**.
-
-This mechanism dramatically increases the cost of misinformation attacks.
-
-To manipulate the network, an adversary would need to control a majority of its computational nodes.
+zur Umgehung von NAT-Barrieren.
 
 ---
 
-# 8. Emergent System Behavior
+### Consensus of Reason (CoR)
 
-Unlike centralized AI platforms, Leviathan does not produce a single global model.
+Ein probabilistischer Validierungs-Algorithmus.
 
-Instead, it creates a **population of local intelligences**.
+Kritische Anfragen werden an **n zufällige Peers** gesendet.  
+Die Antwort wird erst akzeptiert, wenn die **semantische Konvergenz** einen Schwellenwert überschreitet.
 
-Each node may contain:
+R_final = centroid({O1, O2, ..., On})
+if σ(O1..n) < τ
 
-* slightly different model versions
-* different document archives
-* unique vector databases
-
-Through interaction and replication, the network evolves dynamically.
-
-From a systems perspective, Leviathan behaves more like:
-
-* a **biological ecosystem**
-* a **distributed nervous system**
-
-than a conventional computing cluster.
 
 ---
 
-# 9. Practical Feasibility
+# 3. Das Incentive-Modell  
+## Unit of Reason (UoR)
 
-The architecture does not require new fundamental technologies.
+Um das **Free-Rider-Problem** in P2P-Netzwerken zu lösen, implementiert RainbowHole eine **beitragsbasierte Priorisierung**.
 
-All core components already exist in production environments:
+### UoR-Guthaben
 
-| Component             | Existing Technologies |
-| --------------------- | --------------------- |
-| Local inference       | Ollama, llama.cpp     |
-| P2P networking        | WebRTC                |
-| Distributed routing   | Kademlia              |
-| Decentralized storage | IPFS                  |
-| Vector search         | Orama                 |
+Knoten verdienen Credits durch:
 
-Leviathan therefore represents primarily an **integration architecture** rather than a new primitive technology.
+- Bereitstellen von persistentem Speicher für IPFS-Chunks  
+- Validierung von Inferenz-Ergebnissen anderer Knoten  
+- Export von Inferenz-Zyklen während solarer Energie-Überschussphasen  
 
 ---
 
-# 10. Security Considerations
+### Service Level Agreements (SLA)
 
-Three security challenges require careful engineering.
+Höheres UoR-Guthaben erlaubt Zugriff auf größere Modell-Instanzen innerhalb des Schwarms.
 
-### Model Poisoning
+Beispiel:
 
-Malicious actors could distribute modified model weights.
-
-Mitigation:
-
-* cryptographic signatures
-* reproducible model builds
-
-### Knowledge Poisoning
-
-False archives could enter the network.
-
-Mitigation:
-
-* multi-node validation
-* reputation weighting
-
-### Network Sybil Attacks
-
-An attacker could spawn many fake nodes.
-
-Mitigation:
-
-* proof-of-work or stake mechanisms
-* identity scoring systems
+- **GPU-Sharing via Petals-Protokoll**
 
 ---
 
-# 11. Societal Implications
+# 4. Implementierungs-Roadmap  
+## V0 — Scaffolding
 
-If widely adopted, a distributed AI infrastructure fundamentally alters the relationship between knowledge and power.
+### Phase 1 — Hybrid Development (aktueller Stand)
 
-Centralized control over:
+**Orchestrierung**
 
-* models
-* archives
-* reasoning infrastructure
+Python-basiertes Framework zur Steuerung von lokalem RAG.
 
-would be replaced by a **collectively operated knowledge network**.
+**Inferenz-Brücke**
 
-Information could no longer be easily erased, censored, or monopolized.
+Temporäre Nutzung von High-End-APIs (z.B. DeepSeek-V3) zur Generierung komplexer Systemkomponenten.
 
-The system effectively transforms artificial intelligence into a **commons infrastructure**, similar to the early internet.
+Der Code ist modular aufgebaut, um den **nahtlosen Wechsel auf lokale Backends** zu ermöglichen.
 
 ---
 
-# 12. Conclusion
+### Phase 2 — Autarkie-Modus
 
-Leviathan decouples intelligence from centralized infrastructure.
+- vollständige Entfernung externer API-Abhängigkeiten  
+- Optimierung der RAG-Pipeline auf **8 GB RAM System-Limit**  
+- Nutzung von **3B-Parameter-Modellen**
 
-By moving inference to the edge and storage into a peer-to-peer mesh, the system eliminates single points of control and failure.
+---
 
-Instead of residing inside proprietary data centers, intelligence becomes a **distributed property of the network itself**.
+### Phase 3 — Mesh-Integration
 
-Wherever a node exists, the Leviathan exists.
+Aktivierung der **IPFS-Synchronisation** zwischen lokalen Kommune-Nodes.
 
-The machine no longer belongs to institutions.
+---
 
-It belongs to the swarm.
+# 5. Hardware-Anforderungen & Energetik
+
+| Komponente | Minimal (Guerilla) | Empfohlen (Sovereign) |
+|---|---|---|
+| CPU / RAM | 8 GB RAM (DDR4/5) | 64 GB Unified Memory (Apple M-Series) |
+| GPU | Shared Memory / iGPU | RTX 3090 / 4090 (24 GB VRAM) |
+| Storage | 512 GB NVMe SSD | 4 TB+ RAID (IPFS Persistence) |
+| Energie | Netzstrom | Solar-gestützte LiFePO4-Batteriebank |
+
+---
+
+# 6. Sicherheit & Integrität
+
+### Sybil-Schutz
+
+Reputationsgewichtung basierend auf **kryptografischen Arbeitsnachweisen**.
+
+(*Proof-of-Useful-Work*)
+
+---
+
+### Modell-Integrität
+
+Verifizierung der Modell-Gewichte via **SHA-256 Hashes** gegen ein dezentrales Register.
+
+---
+
+# 7. Zusammenfassung für wissenschaftliche Evaluation
+
+RainbowHole stellt eine **Abkehr vom monolithischen KI-Paradigma** dar.
+
+Es ersetzt:
+
+**vertikales Scaling**
+
+> größere Modelle in zentralen Rechenzentren
+
+durch
+
+**horizontale Kooperation**
+
+> viele spezialisierte lokale Modelle
+
+Die mathematische Belastbarkeit des Systems ergibt sich aus der **Entkoppelung von Sprachverarbeitung (LLM)** und **faktischer Information (IPFS-RAG)**.
+
+---
+
+## Status
+
+**In Development**
+
+> The ghosts are in the machine.
+
+---
+
+# Anhang
+
+Installationsanweisungen für:
+
+- Docker-Container  
+- IPFS-Daemon  
+
+folgen in den entsprechenden **Sub-Directories**.
