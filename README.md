@@ -1,4 +1,4 @@
-# Project RainbowHole — V0
+# Project RainbowHole — V0 🌈
 
 ## Abstract
 
