@@ -31,14 +31,15 @@ const App: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Verbindung zum lokalen Leviathan (Ollama)
-      const response = await fetch('http://localhost:11434/api/chat', {
+      const ollamaHost = process.env.OLLAMA_HOST || 'http://localhost:11434';
+      const ollamaModel = process.env.OLLAMA_MODEL || 'deepseek-r1:8b';
+      const response = await fetch(`${ollamaHost}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'deepseek-r1:8b', // Dein lokaler Leviathan
+          model: ollamaModel,
           messages: [...messages, userMessage],
-          stream: false, // Für den Prototyp erstmal ohne Stream, um Komplexität zu sparen
+          stream: false,
         }),
       });
 
@@ -94,4 +95,55 @@ const App: React.FC = () => {
         )}
         
         {messages.map((msg, idx) => (
-          <div key={idx} className
+          <div key={idx} className={`p-4 border ${msg.role === 'user' ? 'border-cyan-800 bg-cyan-950/20' : 'border-cyan-900/50 bg-black/60'}`}>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] uppercase tracking-widest text-cyan-700">
+                {msg.role === 'user' ? '> Operator' : '> Leviathan'}
+              </span>
+              <div className={`h-1 w-1 rounded-full ${msg.role === 'user' ? 'bg-cyan-500' : 'bg-green-500'}`} />
+            </div>
+            {msg.thinking && (
+              <details className="mb-2 group">
+                <summary className="text-[10px] text-cyan-700 cursor-pointer hover:text-cyan-500 uppercase tracking-widest">
+                  [+] Reasoning Trace
+                </summary>
+                <pre className="mt-1 text-xs text-cyan-700/80 whitespace-pre-wrap font-mono border-l border-cyan-900 pl-3">
+                  {msg.thinking}
+                </pre>
+              </details>
+            )}
+            <div className="text-sm leading-relaxed whitespace-pre-wrap">
+              {msg.content}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Input Area */}
+      <div className="border-t border-cyan-900 pt-4">
+        <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex gap-3">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            disabled={isLoading}
+            placeholder="[ Eingabe..." 
+            className="flex-1 bg-black border border-cyan-800 px-4 py-3 text-sm text-cyan-500 placeholder-cyan-800 font-mono outline-none focus:border-cyan-500 transition-colors disabled:opacity-50"
+          />
+          <button
+            type="submit"
+            disabled={!input.trim() || isLoading}
+            className="px-6 py-3 bg-cyan-900/30 border border-cyan-700 text-cyan-500 text-sm uppercase tracking-widest font-mono hover:bg-cyan-800/40 hover:border-cyan-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          >
+            Senden
+          </button>
+        </form>
+      </div>
+
+      {/* Scroll Anchor */}
+      <div ref={messagesEndRef} />
+    </div>
+  );
+}
+
+export default App;

@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "RainbowHole AI Wiki",
+  "description": "Decentralized peer-to-peer intelligence chat interface. Local inference via Ollama (DeepSeek-R1) with Leviathan Protocol.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
